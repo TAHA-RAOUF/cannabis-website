@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { motion } from "framer-motion"
+import ScrollAnimation from "./scroll-animation"
 
 export default function GallerySection() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
@@ -49,11 +51,17 @@ export default function GallerySection() {
   ]
 
   return (
-    <section id="gallery" className="relative py-32 bg-black overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="gallery" className="relative py-32 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/85" />
+      </div>
+      
+      <div className="container relative z-10 mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center text-white mb-16">
+          <ScrollAnimation direction="fade" className="text-center text-white mb-16">
             <span className="text-emerald-400 text-sm font-semibold tracking-[0.3em] uppercase">
               Behind the Scenes
             </span>
@@ -64,13 +72,17 @@ export default function GallerySection() {
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Witness the journey from mountain slopes to premium flower
             </p>
-          </div>
+          </ScrollAnimation>
 
           {/* Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {galleryImages.map((image, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => setSelectedImage(image.src)}
                 className="group relative aspect-[4/5] rounded-lg overflow-hidden cursor-pointer"
               >
@@ -87,7 +99,7 @@ export default function GallerySection() {
                     <h3 className="text-sm font-bold">{image.title}</h3>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

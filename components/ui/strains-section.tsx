@@ -1,37 +1,48 @@
 "use client"
 
+import { section } from "framer-motion/client"
+import ScrollAnimation from "./scroll-animation"
+
 export default function StrainsSection() {
   return (
-    <section id="strains" className="relative py-32 bg-black overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-transparent to-emerald-900" />
+    <section id="strains" className="relative py-32 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1536964310528-e47dd655ecf3?w=1920&q=80" 
+          alt="Cannabis background"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/90 via-black/85 to-emerald-950/50" />
       </div>
 
       <div className="container relative z-10 mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           {/* Header */}
-          <div className="text-center text-white mb-16">
-            <span className="text-emerald-400 text-sm font-semibold tracking-[0.3em] uppercase">
-              Premium Landrace
-            </span>
-            <h2 className="text-4xl md:text-6xl font-bold mt-4 mb-6">
-              Moroccan <span className="text-emerald-400">Beldia</span>
-            </h2>
-            <div className="w-32 h-1 bg-emerald-400 mx-auto mb-6" />
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              A pure landrace strain with centuries of genetic lineage, 
-              cultivated in the legendary Ketama mountains of Morocco.
-            </p>
-          </div>
+          <ScrollAnimation direction="fade" delay={0.1}>
+            <div className="text-center text-white mb-16">
+              <span className="text-emerald-400 text-sm font-semibold tracking-[0.3em] uppercase">
+                Premium Landrace
+              </span>
+              <h2 className="text-4xl md:text-6xl font-bold mt-4 mb-6">
+                Moroccan <span className="text-emerald-400">Beldia</span>
+              </h2>
+              <div className="w-32 h-1 bg-emerald-400 mx-auto mb-6" />
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                A pure landrace strain with centuries of genetic lineage, 
+                cultivated in the legendary Ketama mountains of Morocco.
+              </p>
+            </div>
+          </ScrollAnimation>
 
           {/* Main Content Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Left - Photos */}
-            <div className="space-y-6">
+            <ScrollAnimation direction="left" delay={0.2}>
+              <div className="space-y-6">
               <div className="relative h-96 rounded-lg overflow-hidden shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1605468690608-a9eb286dc1b7?q=80&w=1200"
+                  src="https://images.unsplash.com/photo-1536964310528-e47dd655ecf3?q=80&w=1200"
                   alt="Beldia flower close-up"
                   className="w-full h-full object-cover"
                 />
@@ -42,25 +53,27 @@ export default function StrainsSection() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="relative h-48 rounded-lg overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1587975630812-0bdbdc2f5e0e?q=80&w=600"
+                    src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=600"
                     alt="Beldia trichomes"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="relative h-48 rounded-lg overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1616686800823-bd40fd0fad76?q=80&w=600"
+                    src="https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=600"
                     alt="Beldia harvest"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
 
             {/* Right - Info */}
-            <div className="space-y-8">
-              {/* Strain Info */}
-              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10">
+            <ScrollAnimation direction="right" delay={0.3}>
+              <div className="space-y-8">
+                {/* Strain Info */}
+                <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10">
                 <h3 className="text-2xl font-bold text-white mb-6">Strain Information</h3>
                 <div className="space-y-4 text-gray-300">
                   <div className="flex justify-between border-b border-gray-700 pb-3">
@@ -107,10 +120,12 @@ export default function StrainsSection() {
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
 
           {/* Terpene Profile */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-lg p-10 border border-white/10 mb-16">
+          <ScrollAnimation direction="up" delay={0.4}>
+            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-10 border border-white/10 mb-16">
             <h3 className="text-3xl font-bold text-white mb-8 text-center">Terpene Profile</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Myrcene */}
@@ -197,10 +212,12 @@ export default function StrainsSection() {
                 </p>
               </div>
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
 
           {/* Lab Results */}
-          <div className="bg-gradient-to-br from-gray-900 to-black rounded-lg p-10 border border-gray-800">
+          <ScrollAnimation direction="up" delay={0.5}>
+            <div className="bg-gradient-to-br from-gray-900 to-black rounded-lg p-10 border border-gray-800">
             <div className="flex items-center justify-between mb-8">
               <div>
                 <h3 className="text-3xl font-bold text-white mb-2">Lab Results</h3>
@@ -259,7 +276,8 @@ export default function StrainsSection() {
                 </div>
               </div>
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

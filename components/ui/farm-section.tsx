@@ -1,12 +1,21 @@
 "use client"
 
+import ScrollAnimation from "./scroll-animation"
+import { motion } from "framer-motion"
+
 export default function FarmSection() {
   return (
-    <section id="farm" className="relative py-32 bg-gradient-to-b from-[#0a0a0a] to-[#1a1a1a] overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="farm" className="relative py-32 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1920')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/75 to-black/85" />
+      </div>
+      
+      <div className="container relative z-10 mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center text-white mb-16">
+          <ScrollAnimation direction="fade" className="text-center text-white mb-16">
             <span className="text-emerald-400 text-sm font-semibold tracking-[0.3em] uppercase">
               Where Magic Happens
             </span>
@@ -18,40 +27,45 @@ export default function FarmSection() {
               Nestled at 1,800 meters in the Ketama mountains, our farm combines 
               traditional Moroccan cultivation methods with modern sustainability practices.
             </p>
-          </div>
+          </ScrollAnimation>
 
           {/* Photo Gallery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-            <div className="relative h-96 rounded-lg overflow-hidden group">
-              <img 
-                src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200"
-                alt="Mountain cultivation"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold">Mountain Terroir</h3>
-                <p className="text-gray-300">High-altitude cultivation at 1,800m</p>
+            <ScrollAnimation direction="left" delay={0.2}>
+              <div className="relative h-96 rounded-lg overflow-hidden group">
+                <img 
+                  src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1200"
+                  alt="Mountain cultivation"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-2xl font-bold">Mountain Terroir</h3>
+                  <p className="text-gray-300">High-altitude cultivation at 1,800m</p>
+                </div>
               </div>
-            </div>
-            <div className="relative h-96 rounded-lg overflow-hidden group">
-              <img 
-                src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?q=80&w=1200"
-                alt="Cannabis plants"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold">Pure Beldia Genetics</h3>
-                <p className="text-gray-300">Landrace strain cultivation</p>
+            </ScrollAnimation>
+            <ScrollAnimation direction="right" delay={0.2}>
+              <div className="relative h-96 rounded-lg overflow-hidden group">
+                <img 
+                  src="https://images.unsplash.com/photo-1530651788726-1dbf58eeef1f?q=80&w=1200"
+                  alt="Cannabis plants"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-2xl font-bold">Pure Beldia Genetics</h3>
+                  <p className="text-gray-300">Landrace strain cultivation</p>
+                </div>
               </div>
-            </div>
+            </ScrollAnimation>
           </div>
 
           {/* Methods Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
             {/* Growing Method */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10">
+            <ScrollAnimation direction="left" delay={0.3}>
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 hover:border-emerald-400/50 transition-all duration-300">
               <div className="flex items-start gap-4 mb-6">
                 <div className="text-5xl">🌱</div>
                 <div>
@@ -98,10 +112,12 @@ export default function FarmSection() {
                   </li>
                 </ul>
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
 
             {/* Harvesting Method */}
-            <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10">
+            <ScrollAnimation direction="right" delay={0.3}>
+              <div className="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 hover:border-emerald-400/50 transition-all duration-300">
               <div className="flex items-start gap-4 mb-6">
                 <div className="text-5xl">✂️</div>
                 <div>
@@ -148,11 +164,13 @@ export default function FarmSection() {
                   </li>
                 </ul>
               </div>
-            </div>
+              </div>
+            </ScrollAnimation>
           </div>
 
           {/* Traditions */}
-          <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-900/20 backdrop-blur-sm rounded-lg p-10 border border-emerald-400/30">
+          <ScrollAnimation direction="up" delay={0.4}>
+            <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-900/20 backdrop-blur-sm rounded-lg p-10 border border-emerald-400/30 hover:border-emerald-400/50 transition-all duration-300">
             <div className="text-center mb-8">
               <div className="text-5xl mb-4">🕌</div>
               <h3 className="text-3xl font-bold text-white mb-4">Preserving Traditions</h3>
@@ -192,7 +210,8 @@ export default function FarmSection() {
                 </p>
               </div>
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

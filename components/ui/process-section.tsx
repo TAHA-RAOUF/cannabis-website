@@ -1,29 +1,40 @@
 "use client"
 
+import ScrollAnimation from "./scroll-animation"
+
 export default function ProcessSection() {
   return (
-    <section id="process" className="relative py-32 bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section id="process" className="relative py-32 overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1530595467537-0b5996c41f2d?w=1920')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-black/85" />
+      </div>
+      
+      <div className="container relative z-10 mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
-          <div className="text-center text-white mb-16">
-            <span className="text-emerald-400 text-sm font-semibold tracking-[0.3em] uppercase">
-              From Harvest to Package
-            </span>
-            <h2 className="text-4xl md:text-6xl font-bold mt-4 mb-6">
-              Our <span className="text-emerald-400">Process</span>
-            </h2>
-            <div className="w-32 h-1 bg-emerald-400 mx-auto mb-6" />
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Every step is carefully controlled to preserve terpenes, 
-              cannabinoids, and the authentic character of Moroccan Beldia.
-            </p>
-          </div>
+          <ScrollAnimation direction="fade" delay={0.1}>
+            <div className="text-center text-white mb-16">
+              <span className="text-emerald-400 text-sm font-semibold tracking-[0.3em] uppercase">
+                From Harvest to Package
+              </span>
+              <h2 className="text-4xl md:text-6xl font-bold mt-4 mb-6">
+                Our <span className="text-emerald-400">Process</span>
+              </h2>
+              <div className="w-32 h-1 bg-emerald-400 mx-auto mb-6" />
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                Every step is carefully controlled to preserve terpenes, 
+                cannabinoids, and the authentic character of Moroccan Beldia.
+              </p>
+            </div>
+          </ScrollAnimation>
 
           {/* Process Steps */}
           <div className="space-y-12 mb-20">
             {/* Step 1: Drying Loop System */}
-            <div className="bg-gradient-to-r from-emerald-500/10 to-transparent rounded-lg p-10 border-l-4 border-emerald-500">
+            <ScrollAnimation direction="left" delay={0.2}>
+              <div className="bg-gradient-to-r from-emerald-500/10 to-transparent rounded-lg p-10 border-l-4 border-emerald-500">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -77,9 +88,11 @@ export default function ProcessSection() {
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
 
             {/* Step 2: Quality Standards */}
-            <div className="bg-gradient-to-r from-blue-500/10 to-transparent rounded-lg p-10 border-l-4 border-blue-500">
+            <ScrollAnimation direction="right" delay={0.3}>
+              <div className="bg-gradient-to-r from-blue-500/10 to-transparent rounded-lg p-10 border-l-4 border-blue-500">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="order-2 lg:order-1 relative h-80 rounded-lg overflow-hidden">
                   <img 
@@ -127,9 +140,11 @@ export default function ProcessSection() {
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
 
             {/* Step 3: Curing Method */}
-            <div className="bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg p-10 border-l-4 border-purple-500">
+            <ScrollAnimation direction="left" delay={0.4}>
+              <div className="bg-gradient-to-r from-purple-500/10 to-transparent rounded-lg p-10 border-l-4 border-purple-500">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
@@ -179,9 +194,11 @@ export default function ProcessSection() {
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
 
             {/* Step 4: Packaging */}
-            <div className="bg-gradient-to-r from-amber-500/10 to-transparent rounded-lg p-10 border-l-4 border-amber-500">
+            <ScrollAnimation direction="right" delay={0.5}>
+              <div className="bg-gradient-to-r from-amber-500/10 to-transparent rounded-lg p-10 border-l-4 border-amber-500">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                 <div className="order-2 lg:order-1 relative h-80 rounded-lg overflow-hidden">
                   <img 
@@ -241,10 +258,12 @@ export default function ProcessSection() {
                 </div>
               </div>
             </div>
+            </ScrollAnimation>
           </div>
 
           {/* Quality Commitment */}
-          <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-900/20 backdrop-blur-sm rounded-lg p-12 border border-emerald-400/30 text-center">
+          <ScrollAnimation direction="fade" delay={0.6}>
+            <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-900/20 backdrop-blur-sm rounded-lg p-12 border border-emerald-400/30 text-center">
             <div className="max-w-3xl mx-auto">
               <div className="text-5xl mb-6">🏆</div>
               <h3 className="text-3xl font-bold text-white mb-4">Our Quality Commitment</h3>
@@ -254,7 +273,8 @@ export default function ProcessSection() {
                 represents the finest expression of Moroccan cannabis tradition.
               </p>
             </div>
-          </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>
